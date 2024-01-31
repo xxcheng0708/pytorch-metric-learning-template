@@ -65,8 +65,8 @@ python visualizer.py
 
 <table>
     <tr>
-        <td ><center><img src="./results/plot_cifar10_with_value.jpg" width=300 height=300>embedding特征之间的相似度可视化 </center></td>
-        <td ><center><img src="./results/visualizer_cifar10.jpg"  width=300 height=300>embedding特征降维之后可视化</center></td>
+        <td ><center><img src="./results/plot_cifar10_with_value.jpg" width=500 height=500>embedding特征之间的相似度可视化 </center></td>
+        <td ><center><img src="./results/visualizer_cifar10.jpg"  width=500 height=500>embedding特征降维之后可视化</center></td>
     </tr>
 </table>
 
@@ -74,8 +74,8 @@ python visualizer.py
 
 <table>
     <tr>
-        <td ><center><img src="./results/plot_cifar100_no_value.jpg" width=300 height=300>embedding特征之间的相似度可视化 </center></td>
-        <td ><center><img src="./results/visualizer_cifar100.jpg"  width=300 height=300>embedding特征降维之后可视化</center></td>
+        <td ><center><img src="./results/plot_cifar100_no_value.jpg" width=500 height=500>embedding特征之间的相似度可视化 </center></td>
+        <td ><center><img src="./results/visualizer_cifar100.jpg"  width=500 height=500>embedding特征降维之后可视化</center></td>
     </tr>
 </table>
 
@@ -83,8 +83,8 @@ python visualizer.py
 
 <table>
     <tr>
-        <td ><center><img src="./results/plot_flower_photos_with_value.jpg" width=300 height=300>embedding特征之间的相似度可视化 </center></td>
-        <td ><center><img src="./results/visualizer_flower_photos.jpg"  width=300 height=300>embedding特征降维之后可视化</center></td>
+        <td ><center><img src="./results/plot_flower_photos_with_value.jpg" width=500 height=500>embedding特征之间的相似度可视化 </center></td>
+        <td ><center><img src="./results/visualizer_flower_photos.jpg"  width=500 height=500>embedding特征降维之后可视化</center></td>
     </tr>
 </table>
 </br>
