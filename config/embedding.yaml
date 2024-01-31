@@ -1,0 +1,87 @@
+# 输入数据的通道数
+in_channels: 3
+# 训练数据存放位置
+#train_dataset_dir: "./datasets/cat_and_dog"
+train_dataset_dir: "./datasets/flower_photos"
+# 训练结果保存位置
+#save_dir: "./results/cat_and_dog_2_256_TripletMarginLoss"
+save_dir: "./results/flower_photos_5_64_SupervisedContrastiveLoss"
+# 预训练模型存放位置
+pretrained_models: "./pretrained_models/"
+# 是否计算验证集上的损失
+validate_loss: True
+# 使用的基础模型名称
+# mobilenet_v2, mobilenet_v3_small, mobilenet_v3_large
+# resnet18, resnet34, resnet50, resnet101,
+# resnext50_32x4d, resnext101_32x8d
+# densenet121, densenet161, densenet169
+# shufflenet_v2_x0_5, shufflenet_v2_x1_0
+# squeezenet1_0, squeezenet1_1
+# wide_resnet50_2, wide_resnet101_2
+model_name: resnet18
+# 使用使用预练参数
+use_pretrained: True
+# 当 model_name 以 attention 开头，且 use_pretrained = True 时，需要指定预训练模型的位置
+pretrained_ckpt_path: ""
+# 是否使用训练集的子集来评估验证集，当训练集超大的时候，评估阶段GPU内存放不下全部的训练数据特征，默认 True 就可以
+use_sub_trainset_to_validateset: True
+
+### 跨批量参数配置，扩充训练 batch
+# 是否使用跨批量的数据训练模型（增大训练时的batch大小，类似于MoCO）
+xbm_enable: False
+# 跨批量的batch大小
+xbm_size: 1024
+# 迭代多少次之后启用跨批量（刚开始模型不稳定，等模型稍微稳定再启用）
+xbm_start_iteration: 50
+# 提前结束 xbm 跨批量增强
+xbm_close: 10
+
+### mixup 数据增强
+# 是否启用 mixup
+mixup_enable: False
+# 在最后50轮迭代关闭跨批量
+mixup_close: 10
+
+# 交替使用 xbm 跨批量和 mixup 数据增强，如果不想使用这个特性，把这个数值设置成大于总迭代次数的任意值
+xbm_mixup_alternate: 10
+
+# 输出的特征维度
+out_dimension: 256
+# 使用的 gpu 设备
+device: [0, 1, 2, 3]
+# 训练的batch大小，等于 batch_size = m_class_per_batch * m_sample_per_class，训练度量学习模型，batch_size 设置的尽量大
+#batch_size: 320
+# batch size中包含的类别数量，保持样本均衡，当总体的类别数小于m_class_per_batch时，m_class_per_batch的值等于类别数
+m_class_per_batch: 20
+# batch size中包含的每个类别的样本数量,batch_size = m_class_per_batch * m_sample_per_class
+m_sample_per_class: 64
+# 训练集的比例
+train_ratio: 0.8
+# 验证集的比例
+val_ratio: 0.2
+# 测试集的比例
+test_ratio: 0.0
+
+### 数据增强参数设置
+# 图像向素质反转的随机概率
+invert_ratio: 0.0
+# 随机左右翻转的概率
+left_right_flip: 0.5
+# 随机上下翻转的概率
+up_down_flip: 0.0
+# 使用 letterbox 缩放，在四周增加填充内容，保持图像主体内容的长宽比不变
+use_letterbox: False
+
+# 数据加载时的并行度，windows环境设置为 0
+num_workers: 16
+epoch: 100
+# 学习率
+lr: 0.005
+# 学习率衰减
+step_size: 50
+gamma: 0.1
+# 正则化参数
+weight_decay: 0.0005
+# 参数优化时的动量参数
+momentum: 0.9
+
