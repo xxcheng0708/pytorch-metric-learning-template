@@ -171,7 +171,7 @@ if __name__ == '__main__':
             "mean_average_precision_at_r"
         ),
         k="max_bin_count",
-        knn_func=CustomKNN(distance=distance)
+        knn_func=CustomKNN(distance=distance, batch_size=batchsize)
     )
 
     knn_model = KNeighborsClassifier(n_neighbors=5, p=2, n_jobs=-1)
